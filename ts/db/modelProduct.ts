@@ -3,7 +3,7 @@ import { Database } from "./database";
 
 export class modelProduct extends Database
 {
-    static _schema:Schema = new Schema(
+    static _schema:Schema = new Schema(   // // 
             {
     
                 buyingPrice: Number,
@@ -16,6 +16,7 @@ export class modelProduct extends Database
               
               },{collection:'Products'});
 
+              // there should be only one model, even for multiple instances of class modelProduct//
     static _model:any  = model('Products', this._schema);
     
     constructor(){
@@ -23,11 +24,11 @@ export class modelProduct extends Database
         
 
         super();
-        if (connection.readyState != 1){
+       /* if (connection.readyState != 1){
 
             connect(this.dbURL);
 
-        }
+        }*/
         
       
 /*

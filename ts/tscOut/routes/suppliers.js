@@ -10,22 +10,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const database_1 = require("../db/database");
-const modelProduct_1 = require("../db/modelProduct");
-//import { Database } from "..db/database.ts";
-//impot {Router}
-const producRouter = (0, express_1.Router)();
-/**
- *
- * get
- */
-var db = new database_1.Database();
-producRouter.get('/', (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log('get of products');
-    var products = new modelProduct_1.modelProduct();
-    var proList = yield products.getProducList();
-    console.log(proList);
-    res.render('productList', { pl: proList });
+const modelSuppliers_1 = require("../db/modelSuppliers");
+const suppliersRouter = (0, express_1.Router)();
+suppliersRouter.get('/', (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    var suppliers = new modelSuppliers_1.modelSuppliers();
+    var suppliersList = yield suppliers.getSuppliersList();
+    console.log(suppliersList);
+    res.render('suppliersList', { sl: suppliersList });
 }));
-//export default producRouter;
-module.exports = producRouter;
+module.exports = suppliersRouter;

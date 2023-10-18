@@ -7,6 +7,8 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var productsRouter = require('./ts/tscOut/routes/products');
+var manufacturersRouter = require('./ts/tscOut/routes/manufacturers');
+var suppliersRouter =     require('./ts/tscOut/routes/suppliers');
 
 var app = express();
 
@@ -23,7 +25,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 //app.use(app.router);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/products', productsRouter);
+app.use('/products', productsRouter); // products router //
+app.use('/manufacturers', manufacturersRouter); // manufacturers router //
+app.use('/suppliers', suppliersRouter);
 
 // eAccount code //
 var mangoose = require('mongoose');
